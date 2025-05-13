@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>THEERTH TRAVEL EXPLORER 🦋</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      box-sizing: border-box;
+    }
+
+    header {
+      background: linear-gradient(to right, #00aaff, #0044cc);
+      color: #fff;
+      padding: 20px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+    }
+
+    nav ul li {
+      margin: 0 10px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+
+    .hero {
+      background: linear-gradient(to bottom, #0044cc, #00aaff);
+      color: #fff;
+      height: 80vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 1.2em;
+    }
+
+    .hero button {
+      padding: 10px 20px;
+      border: none;
+      background-color: #0044cc;
+      color: white;
+      font-size: 1em;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .hero button:hover {
+      background-color: #002266;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    section {
+      padding: 50px 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .side-by-side {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .destinations-container, .form-container {
+      flex: 1;
+      min-width: 45%;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .destinations-container {
+      background-color: #f1f1f1;
+    }
+
+    .destination {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .destination div {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      height: 150px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+
+    .destination .box1 {
+      background-color: #ff6b6b;
+    }
+
+    .destination .box2 {
+      background-color: #6b83ff;
+    }
+
+    .destination .box3 {
+      background-color: #6bff83;
+    }
+
+    .destination .box4 {
+      background-color: #ffd56b;
+    }
+
+    .destination .box5 {
+      background-color: #ff8c00;
+    }
+
+    .destination .box6 {
+      background-color: #00cc99;
+    }
+
+    .form-container {
+      background-color: #f9f9f9;
+    }
+
+    .form-container input,
+    .form-container select,
+    .form-container textarea,
+    .form-container button {
+      width: 100%;
+      margin-bottom: 15px;
+      padding: 10px;
+      font-size: 1em;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    .form-container button {
+      background-color: #00aaff;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+
+    .form-container button:hover {
+      background-color: #0088cc;
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+    }
+
+    .testimonials {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .testimonial-card {
+      display: inline-block;
+      width: 220px;
+      padding: 15px;
+      margin: 10px;
+      border-radius: 10px;
+      text-align: left;
+      font-size: 0.9em;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      background-color: #000;
+      color: #00aaff;
+    }
+
+    .testimonial-card p {
+      font-style: italic;
+      font-size: 1em;
+      margin-bottom: 10px;
+    }
+
+    .testimonial-card small {
+      font-size: 0.85em;
+      color: #00aaff;
+    }
+
+    .faq {
+      margin-top: 50px;
+    }
+
+    .faq-item {
+      margin-bottom: 8px;
+      border-bottom: 1px solid #ddd;
+      padding: 5px 0;
+    }
+
+    .faq-item button {
+      width: 100%;
+      text-align: left;
+      background-color: #00aaff;
+      color: white;
+      border: none;
+      padding: 8px;
+      cursor: pointer;
+      font-size: 0.9em;
+    }
+
+    .faq-item button:hover {
+      background-color: #0088cc;
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 5px;
+      background-color: #f9f9f9;
+      font-size: 0.85em;
+    }
+
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .lightbox img {
+      max-width: 80%;
+      max-height: 80%;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>THEERTH TRAVEL EXPLORER 🦋</h1>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#destinations">Destinations</a></li>
+          <li><a href="#book">Book Now</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="hero" id="home">
+    <div>
+      <h1>Discover Your Next Adventure</h1>
+      <p>Explore beautiful destinations around the world.</p>
+      <button onclick="document.getElementById('destinations').scrollIntoView();">Explore Now</button>
+    </div>
+  </div>
+
+  <section id="destinations">
+    <div class="container">
+      <h2>Top Destinations</h2>
+      <div class="side-by-side">
+        <div class="destinations-container">
+          <div class="destination">
+            <div class="box1">Paris, France</div>
+            <div class="box2">Maldives</div>
+            <div class="box3">Tokyo, Japan</div>
+            <div class="box4">Sydney, Australia</div>
+            <div class="box5">New York, USA</div>
+            <div class="box6">Rome, Italy</div>
+          </div>
+        </div>
+
+        <div class="form-container">
+          <h2>Book Your Tour</h2>
+          <form>
+            <input type="text" placeholder="Full Name" required>
+            <input type="email" placeholder="Email" required>
+            <input type="date" placeholder="Travel Date" required>
+            <select>
+              <option>Select Destination</option>
+              <option>Paris</option>
+              <option>Maldives</option>
+              <option>Tokyo</option>
+              <option>Sydney</option>
+              <option>New York</option>
+              <option>Rome</option>
+            </select>
+            <textarea rows="5" placeholder="Additional Notes"></textarea>
+            <button type="submit">Book Now</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="testimonials" class="testimonials">
+    <h2>Traveler Testimonials</h2>
+    <div class="testimonial-card">
+      <p>"This was the best experience of my life! Highly recommend the Maldives!"</p>
+      <small>- John Doe</small>
+    </div>
+    <div class="testimonial-card">
+      <p>"Tokyo was amazing. The people, the culture, and the food were out of this world!"</p>
+      <small>- Jane Smith</small>
+    </div>
+    <div class="testimonial-card">
+      <p>"Paris is magical. The Eiffel Tower and the food are just unforgettable!"</p>
+      <small>- Emma White</small>
+    </div>
+    <div class="testimonial-card">
+      <p>"I loved my trip to Rome. The history and architecture are incredible!"</p>
+      <small>- Robert Brown</small>
+    </div>
+  </section>
+
+  <section id="faq" class="faq">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <button onclick="toggleAnswer('answer1')">What is the best time to visit Paris?</button>
+      <div id="answer1" class="faq-answer">
+        <p>The best time to visit Paris is during the spring or fall, when the weather is mild and the crowds are fewer.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button onclick="toggleAnswer('answer2')">Do I need a visa to visit Tokyo?</button>
+      <div id="answer2" class="faq-answer">
+        <p>It depends on your nationality. Check with the Japanese embassy in your country for more details.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 THEERTH TRAVEL EXPLORER 🦋. All Rights Reserved.</p>
+  </footer>
+
+  <div id="lightbox" class="lightbox">
+    <img src="" alt="">
+  </div>
+
+  <script>
+    function toggleAnswer(id) {
+      const answer = document.getElementById(id);
+      answer.style.display = (answer.style.display === "block") ? "none" : "block";
+    }
+
+    const lightbox = document.getElementById("lightbox");
+    const images = document.querySelectorAll(".destination div");
+    images.forEach(image => {
+      image.addEventListener("click", function() {
+        const src = "https://via.placeholder.com/500";
+        lightbox.style.display = "flex";
+        lightbox.querySelector("img").src = src;
+      });
+    });
+
+    lightbox.addEventListener("click", function() {
+      lightbox.style.display = "none";
+    });
+  </script>
+</body>
+</html>
